@@ -17,7 +17,7 @@ $navbar-default-bg :black;
 #logo{
     float: left;
     font-size: 1.7em;
-    color: #fff;
+    color: rgb(26, 23, 23);
     text-transform: uppercase;
     letter-spacing: -1px;
     font-weight: bold;
@@ -27,12 +27,12 @@ $navbar-default-bg :black;
 }
 
 #logo:hover {
-    color: #fff;
+    color: rgb(14, 13, 13);
     text-decoration: none;
 }
 
 .jambotron h1,h2{
-    color: #fff;
+    color: rgb(15, 9, 9);
     text-align: center;
     margin-bottom: 30px;
     letter-spacing: -1px;
@@ -43,6 +43,37 @@ background-color: rgb(39, 6, 6);
 }
 
 .btn-xlarge:hover {
-color: #fff;
+color: rgb(240, 46, 46);
 text-decoration: none;
 }
+
+footer {
+    margin-top: 50xp;
+    padding-top: 5xp;
+    border-top: 1px solid #d43333;
+    color:  rgb(199, 50, 50);
+}
+
+footer a{
+    color: rgb(187, 25, 25);
+}
+
+footer a:hover {
+    color: #222
+}
+footer small{
+    float: left;
+}
+
+footer ul{
+    float: right;
+    list-style: none;
+}
+
+footer ul li{
+    float:left;
+    margin-left: 15px;
+
+}
+
+
