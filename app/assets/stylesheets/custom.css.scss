@@ -3,7 +3,7 @@ $navbar-default-bg :black;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.center{
+.center {
     text-align: center;
 }
 
@@ -14,16 +14,13 @@ $navbar-default-bg :black;
 
 }
 
-#logo{
+#logo {
     float: left;
     font-size: 1.7em;
     color: rgb(212, 203, 203);
     text-transform: uppercase;
     letter-spacing: -1px;
     font-weight: bold;
-
-
-
 }
 
 #logo:hover {
@@ -31,7 +28,7 @@ $navbar-default-bg :black;
     text-decoration: none;
 }
 
-.jambotron h1,h2{
+.jambotron h1, h2 {
     color: rgb(15, 9, 9);
     text-align: center;
     margin-bottom: 30px;
@@ -39,12 +36,12 @@ $navbar-default-bg :black;
 }
 
 .btn-xlarge {
-background-color: rgb(39, 6, 6);
+    background-color: rgb(39, 6, 6);
 }
 
 .btn-xlarge:hover {
-color: rgb(240, 46, 46);
-text-decoration: none;
+    color: rgb(240, 46, 46);
+    text-decoration: none;
 }
 
 footer {
@@ -54,7 +51,7 @@ footer {
     color:  rgb(199, 50, 50);
 }
 
-footer a{
+footer a {
     color: rgb(187, 25, 25);
 }
 
@@ -65,15 +62,14 @@ footer small{
     float: left;
 }
 
-footer ul{
+footer ul {
     float: right;
     list-style: none;
 }
 
-footer ul li{
+footer ul li {
     float:left;
     margin-left: 15px;
-
 }
 
 
