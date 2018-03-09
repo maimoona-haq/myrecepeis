@@ -17,7 +17,7 @@ $navbar-default-bg :black;
 #logo {
     float: left;
     font-size: 1.7em;
-    color: rgb(212, 203, 203);
+    color: rgb(238, 214, 214);
     text-transform: uppercase;
     letter-spacing: -1px;
     font-weight: bold;
@@ -84,4 +84,15 @@ footer ul li {
 .colormatch {
     color: black;
     }
+
+.listing {
+    list-style: none;
+    padding-left: 0;
+}
+
+.chef-title {
+    color:  #222;
+    font-weight: bold;
+    font-size: 1.25em;
+}
     
