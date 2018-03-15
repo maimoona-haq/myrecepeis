@@ -8,8 +8,10 @@
                     <li><%= chef.chef_name.capitalize %></li>
                     <li class= "chef_title"><%= link_to chef.chef_name.capitalize, chef_path(chef)%></li>
                     <li><small><%= pluralize(chef.recipes.count, "recipe")if chef.recipes %></small></li>
+                <% if logged_in? && current_chef.admin? && !chef.admin?%>
                     <li><%= link_to "Delete the chef", chef_path(chef), method: :delete,
                                     data: {confirm: "Are you sure you want to delete"}%><li>
+                <% end %>
                 </div>
             </div>
         </ul>
