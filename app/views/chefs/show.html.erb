@@ -1,14 +1,11 @@
-<%= render 'shared/page_title', title: "Chef #{@chef.chef_name}'s Profile" %>
+<%= render 'shared/page_title', title: "Chef #{@chef.chef_name}'s profile'" %>
+<% if @chef.recipes.count != 0%>
+    <h4 align= "center"><%= @chef.chef_name%></h4>
+    <%= render 'recipes/recipe', obj: @chef.recipes %>
+<% else %>
+<h4 align = "center">No recipes yet<h4>
 
-<div class ="row">
-    <div class="col-md-4 col-md-offset-4 center">
-     <%= gravatar_for @chef, size: "150" %>
-    </div>
-</div>
-
-<h4 align= "center"><%= @chef.chef_name%>'s recipes</h4>
-
-<%= render 'recipes/recipe', obj: @chef.recipes %>
+<% end %>
 
 
 

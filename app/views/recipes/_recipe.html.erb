@@ -9,10 +9,14 @@
              <h4><%= link_to recipe.name, recipe_path(recipe)%><h4>
             <h4><%= recipe.description%><h4>
             <p><%truncate(recipe.description, length: 150)%></p>
+            <% if recipe.ingreedients.any? %>
+                <p>Ingreedients: <%= render recipe.ingreedients %></p>
+            <% end %>
             <p>
-             <span class = "quiet"small>Created<%= time_ago_in_words(recipe.created_at)%> ago </small></span>
+             <span class = "quiet"small>Created<%= time_ago_in_words(recipe.created_at)%> ago by <%= recipe.chef.chef_name.capitalize%>
+                                                 | <%= pluralize(recipe.comments.count, 'Comment') %></small></span>
             </p>
-            <% if logged_in? && (current_chef == recipe.chef) || current_chef.admin? %>
+            <% if logged_in? && (current_chef == recipe.chef || current_chef.admin?) %>
                 <div clas = "recipe_actions">
                     <%= link_to "Edit this recipe", edit_recipe_path(recipe), class: "btb btn-xs btn-warning" %>
                     <%= link_to "Delete this recipe", recipe_path(recipe), method: :delete, 

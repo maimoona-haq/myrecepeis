@@ -16,36 +16,69 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       <li> <%= link_to "Recipes", recipes_path%></li>
+      <li> <%= link_to "Chefs", chefs_path%></li>
+     <% if logged_in? %>  
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recipes<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Create a new recipe", new_recipe_path %></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      <% end %>
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingreedients<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "All ingredients", ingreedients_path %></li>
+              <% Ingreedient.all.each do |ingreedient| %>
+                <%= link_to ingreedient.name.capitalize, ingreedient_path(ingreedient) %>
+               <% end %>
+               <% if logged_in? && current_chef.admin? %>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "New ingredient", new_ingreedient_path%></li>
+              <% end %>
+            
+            </ul>
+      </li>  
 
-       <li> <%= link_to "Chefs", chefs_path%></li>
-       <li><%= link_to "all recipes", recipes_path %></li>
+      <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+     
+    <% if logged_in? %> 
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_chef.chef_name%>'s profile <%= "Admin" if current_chef.admin?%> <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#"><%= link_to "view your profile", chef_path(current_chef)%></a></li>
+          <li><%= link_to "edit your profile", edit_chef_path(current_chef)%></li>
+          <li><a href="#">Something else here</a></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to "Log out", logout_path, method: :delete%></li>
+        </ul>
+      </li>
+      <% else %>
+        <li><%= link_to "log in", login_path%></li>
+      <% end %>
+     
+  </div>
+</div>
+</nav>
+
+      
+       
+       
+         
 
        
 
       
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-       
-      <% if logged_in? %> 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_chef.chef_name%>'s profile <%= "Admin" if current_chef.admin?%> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><%= link_to "view your profile", chef_path(current_chef)%></a></li>
-            <li><%= link_to "edit your profile", edit_chef_path(current_chef)%></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "Log out", logout_path, method: :delete%></li>
-          </ul>
-        </li>
-        <% else %>
-          <li><%= link_to "log in", login_path%></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
+     
